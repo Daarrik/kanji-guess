@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import TopButton from './components/TopButton';
+import { fetchGrade1Kanji, getWords, getReading } from './getKanji';
 
-function App() {
+const App = () => {
+  const [kanji, setKanji] = useState('');
+  const [reading, setReading] = useState('');
+
+  const displayKanji = async () => {
+    const character = await fetchGrade1Kanji()
+    setKanji(character);
+    getReading(character);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='kanji-guess-app'>
+      <div className='top'>
+        <TopButton
+          text={reading}
+          displayKanji={displayKanji}
+        />
+      </div>
+      <div className='kanji-container'>
+        <h1 className='kanji'>{ kanji }</h1>
+      </div>
     </div>
   );
 }
