@@ -1,12 +1,14 @@
+.kanji-guess-app {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100px;
+  margin: 0;
+}
+
 body {
-  font-size: 62.5%;
   background-color: #1A1A1D;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
@@ -14,59 +16,57 @@ code {
     monospace;
 }
 
-.top {
-  background-color: #4E4E50;
-  text-align: center;
-  width: auto;
-  height: 5rem;
-}
-
-.top-button {
-  background-color: #4E4E50;
-  box-shadow: inset 0px 0rem 0px #1A1A1D;
-  color: #FFFFFF;
-  border: none;
-  text-align: center;
-  font-size: 1rem;
-  font-family: 'Zen Antique', serif;
+.normal-button {
+  margin-top: 10px;
+  height: 50px;
   width: 100px;
-  height: 5rem;
-  transition-duration: 0.25s;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  transition-duration: .25s;
 }
 
-.top-button:hover {
-  box-shadow: inset 0px -1rem 0px #1A1A1D;
-  transition-duration: 0.25s;
-}
-
-.top-button:active {
-  box-shadow: inset 0px -5rem 0px #1A1A1D;
-  transition-duration: 0.05s;
+.normal-button:hover {
+  color: #f6f6f6;
+  background-color: #C3073F;
 }
 
 .kanji-container {
   background-color: #C3073F;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  padding: 2rem;
-  width: 30rem;
-  height: 15rem;
-  border: none;
+  width: 500px;
+  height: 250px;
   border-radius: 15px;
 }
 
 .kanji {
-  margin: 0%;
-  position: relative;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  font-size: 10.0rem;
-  font-family: 'Zen Antique', serif;
+  line-height: 250px;
+  margin: 0;
+  font-size: 150px;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
   text-align: center;
-  color:white;
+  color: #f6f6f6;
+}
+
+.guess-container {
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.guess {
+  border: none;
+  padding: 0px;
+  margin-right: 0px;
+  width: 300px;
+  height: 75px;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  color: #C3073F;
+  outline: none;
+}
+
+.guess:focus::placeholder {
+  color: transparent;
 }
