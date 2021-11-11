@@ -4,6 +4,7 @@ import GuessText from './components/GuessText';
 import { fetchCharacter, getWordData } from './getKanji';
 import { getCommonWord } from './commonKanji';
 import GuessBox from './components/GuessBox';
+import BoxTest from './components/BoxTest';
 
 const App = () => {
   const [kanji, setKanji] = useState('');
@@ -15,10 +16,6 @@ const App = () => {
   useEffect(() => {
     startNew()
   }, []);
-
-  useEffect(() => {
-    console.log(kanjiReading);
-  }, [kanjiReading]);
 
   const kanjiContainer = useRef(null);
 
@@ -86,7 +83,7 @@ const App = () => {
               checkGuess={checkGuess}
             />
             :
-            <GuessBox
+            <BoxTest
               reading={kanjiReading}
             />
           :
