@@ -45,11 +45,12 @@ const GuessBox = props => {
     />
   ));
 
+  console.log(charBoxes[0]);
+  
   return (
     <div
       className='guess-container'
     >
-
       <p>{boxGuess}</p>
       <div>{charBoxes}</div>
       <button

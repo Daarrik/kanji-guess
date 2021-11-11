@@ -53,6 +53,18 @@ const App = () => {
     }
   }
 
+  const guessMode = (
+    textBox ?
+      <GuessText
+        checkGuess={checkGuess}
+      />
+    :
+      <GuessBox
+        reading={kanjiReading}
+        checkGuess={checkGuess}
+    />
+  )
+
   return (
     <div className='kanji-guess-app'>
       <button
@@ -65,21 +77,13 @@ const App = () => {
       </div>
         { // Disgusting nested conditional rendering
         !guessed ?
-          textBox ?
-            <GuessText
-              checkGuess={checkGuess}
-            />
-          :
-            <GuessBox
-              reading={kanjiReading}
-              checkGuess={checkGuess}
-            />
+          guessMode
         :
           <GetKanji
             text={'次へ'}
             startNew={startNew}
             container={kanjiContainer}
-        />
+          />
         }
     </div>
   );

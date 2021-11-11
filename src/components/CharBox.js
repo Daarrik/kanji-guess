@@ -4,18 +4,17 @@ const CharBox = props => {
   const clicked = useRef(false);
 
   const handleClick = e => {
-    !clicked.current ? 
-    props.addToGuess(props.char) 
-    : 
-    props.removeFromGuess(props.char);
+    !clicked.current ? props.addToGuess(props.char) : props.removeFromGuess(props.char);
     clicked.current = !clicked.current;
-    console.log(clicked.current);
+    console.log(props.char + clicked.current);
   }
+
+  console.log(props.char + clicked.current);
 
   return (
     <button
       className='normal-button'
-      onClick={() => handleClick()}
+      onClick={handleClick}
     >
     {props.char}
     </button>
