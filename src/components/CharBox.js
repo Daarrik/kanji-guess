@@ -5,11 +5,11 @@ const CharBox = props => {
 
   const handleClick = e => {
     !clicked.current ? 
-      props.addToGuess(props.char) 
+    props.addToGuess(props.char) 
     : 
-      props.removeFromGuess(props.char);
-      clicked.current = !clicked.current;
-      console.log(clicked.current);
+    props.removeFromGuess(props.char);
+    clicked.current = !clicked.current;
+    console.log(clicked.current);
   }
 
   return (

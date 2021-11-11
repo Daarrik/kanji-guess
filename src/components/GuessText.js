@@ -14,27 +14,31 @@ const GuessText = props => {
   }
 
   return (
-    <form
-      id='guess-form'
-      onSubmit={handleSubmit}
+    <div
+      className='guess-container'
     >
-      <input
-        className='guess'
-        type='text'
-        name='guess'
-        value={guess}
-        placeholder='音読み当ててみよう'
-        onChange={handleChange}
-      />
-      <div>
-        <button
-          className='normal-button'
-          type='submit'
-        >
-        チェック
-        </button>
-      </div>
-    </form>
+      <form
+        id='guess-form'
+        onSubmit={handleSubmit}
+      >
+        <input
+          className='guess'
+          type='text'
+          name='guess'
+          value={guess}
+          placeholder='音読み当ててみよう'
+          onChange={handleChange}
+        />
+        <div>
+          <button
+            className='normal-button'
+            type='submit'
+          >
+          チェック
+          </button>
+        </div>
+      </form>
+    </div>
   )
 }
 
