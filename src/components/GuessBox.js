@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CharBox from './CharBox';
 import { nanoid } from 'nanoid';
 
 const GuessBox = props => {
   const [boxGuess, setBoxGuess] = useState('');
+  const [charBoxes, setCharBoxes] = useState(null);
 
   const addToGuess = character => {
     setBoxGuess(boxGuess => boxGuess + character);
@@ -13,9 +14,26 @@ const GuessBox = props => {
     setBoxGuess(boxGuess => boxGuess.replace(character, ''));
   }
 
+  useEffect(() => {
+    intializeCharBoxes();
+  }, [props.reading]);
+
+  const intializeCharBoxes = () => {
+    setCharBoxes(props.reading.split('').map(character => (
+      <CharBox
+        key={nanoid()}
+        clicked={false}
+        character={character}
+        addToGuess={addToGuess}
+        removeFromGuess={removeFromGuess}
+      />
+    )));
+  }
+
   const handleClick = () => {
     props.checkGuess(boxGuess);
     setBoxGuess('');
+    intializeCharBoxes();
   }
 
   // const shuffle = array => {
@@ -35,18 +53,6 @@ const GuessBox = props => {
   //   return array;
   // }
 
-  // AGONY
-  const charBoxes = props.reading.split('').map(character => (
-    <CharBox
-      key={nanoid()}
-      char={character}
-      addToGuess={addToGuess}
-      removeFromGuess={removeFromGuess}
-    />
-  ));
-
-  console.log(charBoxes[0]);
-  
   return (
     <div
       className='guess-container'

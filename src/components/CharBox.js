@@ -1,22 +1,25 @@
 import React, { useRef } from 'react';
 
 const CharBox = props => {
-  const clicked = useRef(false);
+  const clicked = useRef(props.clicked);
 
   const handleClick = e => {
-    !clicked.current ? props.addToGuess(props.char) : props.removeFromGuess(props.char);
+    !clicked.current ? 
+      props.addToGuess(props.character) 
+    : 
+      props.removeFromGuess(props.character);
     clicked.current = !clicked.current;
-    console.log(props.char + clicked.current);
+    console.log(props.character + clicked.current);
   }
 
-  console.log(props.char + clicked.current);
+  console.log(props.character + clicked.current);
 
   return (
     <button
       className='normal-button'
       onClick={handleClick}
     >
-    {props.char}
+    {props.character}
     </button>
   );
 }
