@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import GetKanji from './components/GetKanji';
 import GuessText from './components/GuessText';
-import { fetchCharacter, getWordData } from './getKanji';
+import { fetchCharacter, getWordData, getWord } from './getKanji';
 import { getCommonWord } from './commonKanji';
 import GuessBox from './components/GuessBox';
-import BoxTest from './components/BoxTest';
 
 const App = () => {
   const [kanji, setKanji] = useState('');
@@ -12,24 +11,29 @@ const App = () => {
   const [guessed, setGuessed] = useState(false);
   const [textBox, setTextBox] = useState(false);
   
-
   useEffect(() => {
     startNew();
   }, []);
 
   const kanjiContainer = useRef(null);
 
+  // Works without CORS bypass extension but words
+  // are very difficult
   const startNew = async () => {
     setKanji('...');
     setGuessed(false);
-    const character = await fetchCharacter();
-    const [word, reading] = await getWordData(character);
+    // const character = await fetchCharacter();
+    // const [word, reading] = await getWordData(character);
+    const [word, reading] = await getWord();
     setKanji(word);
     setKanjiReading(reading);
   }
 
+  // Does not work without a CORS bypass extension
+  // API isn't RESTful
   // const startNew = async () => {
   //   setKanji('...');
+  //   setGuessed(false);
   //   const [word, reading] = await getCommonWord();
   //   setKanji(word);
   //   setKanjiReading(reading);
@@ -45,7 +49,8 @@ const App = () => {
       else {
         const temp = kanji;
         setKanji('不正解');
-        setTimeout(() => setKanji(temp), 1000);
+        setGuessed(true);
+        // setTimeout(() => setKanji(temp), 1000);
       }
     }
     else {
@@ -66,25 +71,32 @@ const App = () => {
   )
 
   return (
-    <div className='kanji-guess-app'>
+    <div>
       <button
+        className='normal-button bottom-left'
         onClick={() => setTextBox(!textBox)}
       >
-        change input type
+        { textBox ? 'ボックス' : 'キーボード' }
       </button>
-      <div className='kanji-container' ref={kanjiContainer}>
-        <h1 className='kanji'>{ kanji }</h1>
+      <div className='kanji-guess-app'>
+        <div className='kanji-container' ref={kanjiContainer}>
+          <h1 className='kanji'>{ kanji }</h1>
+        </div>
+        <div
+          className='guess-container'
+        >
+          { // Disgusting nested conditional rendering
+          !guessed ?
+            guessMode
+          :
+            <GetKanji
+              text={'次へ'}
+              startNew={startNew}
+              container={kanjiContainer}
+            />
+          }
+        </div>
       </div>
-        { // Disgusting nested conditional rendering
-        !guessed ?
-          guessMode
-        :
-          <GetKanji
-            text={'次へ'}
-            startNew={startNew}
-            container={kanjiContainer}
-          />
-        }
     </div>
   );
 }

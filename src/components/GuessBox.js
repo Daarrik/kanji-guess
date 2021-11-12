@@ -19,7 +19,8 @@ const GuessBox = props => {
   }, [props.reading]);
 
   const intializeCharBoxes = () => {
-    setCharBoxes(props.reading.split('').map(character => (
+    setBoxGuess('');
+    setCharBoxes(shuffle(props.reading.split('').map(character => (
       <CharBox
         key={nanoid()}
         clicked={false}
@@ -27,7 +28,7 @@ const GuessBox = props => {
         addToGuess={addToGuess}
         removeFromGuess={removeFromGuess}
       />
-    )));
+    ))));
   }
 
   const handleClick = () => {
@@ -36,28 +37,30 @@ const GuessBox = props => {
     intializeCharBoxes();
   }
 
-  // const shuffle = array => {
-  //   let currentIndex = array.length, randomIndex;
+  const shuffle = array => {
+    let currentIndex = array.length, randomIndex;
 
-  //   // While there remain elements to shuffle...
-  //   while (currentIndex != 0) {
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
 
-  //     // Pick a remaining element...
-  //     randomIndex = Math.floor(Math.random() * currentIndex);
-  //     currentIndex--;
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
 
-  //     // And swap it with the current element.
-  //     [array[currentIndex], array[randomIndex]] = [
-  //       array[randomIndex], array[currentIndex]];
-  //   }
-  //   return array;
-  // }
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+    return array;
+  }
 
   return (
-    <div
-      className='guess-container'
-    >
-      <p>{boxGuess}</p>
+    <div>
+      <div
+        className='box-guess-container'
+      >
+        <p className='box-guess'>{boxGuess}</p>
+      </div>
       <div>{charBoxes}</div>
       <button
         className='normal-button'

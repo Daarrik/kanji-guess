@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const fetchCharacter = async () => {
-  const { data } = await axios.get('https://kanjiapi.dev/v1/kanji/grade-2');
+  const { data } = await axios.get('https://kanjiapi.dev/v1/kanji/grade-1');
   const index = Math.floor(Math.random() * data.length);
   return data[index];
 }
@@ -17,4 +17,10 @@ export const getWordData = async (character) => {
     const reading = data[dataIndex].variants[variantIndex].pronounced;
     return [word, reading];
   }
+}
+
+export const getWord = async () => {
+  const character = await fetchCharacter();
+  const [word, reading] = await getWordData(character);
+  return ([word, reading]);
 }

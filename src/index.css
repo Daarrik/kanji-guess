@@ -2,7 +2,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 100px;
+  top: 50px;
   margin: 0;
 }
 
@@ -27,16 +27,22 @@ code {
   transition-duration: .25s;
 }
 
+.bottom-left {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
 .normal-button:hover {
   color: #f6f6f6;
   background-color: #C3073F;
+  transition-duration: .25s;
 }
 
 .kanji-container {
   background-color: #C3073F;
   width: 500px;
-  height: 250px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .char-box {
@@ -45,12 +51,14 @@ code {
   width: 75px;
   border: none;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 25px;
+  color: #C3073F;
   font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  transition-duration: .25s;
 }
 
 .box-container {
-  width:500px;
+  width: 400px;
   height: 200px;
 }
 
@@ -64,8 +72,7 @@ code {
 }
 
 .guess-container {
-  width: 500px;
-  height: 200px;
+  width: 400px;
   margin: auto;
   margin-top: 50px;
   text-align: center;
@@ -82,6 +89,14 @@ code {
   font-family: 'Zen Kaku Gothic Antique', sans-serif;
   color: #C3073F;
   outline: none;
+}
+
+.box-guess-container {
+  height: 30px;
+}
+
+.box-guess {
+  color: white;
 }
 
 .guess:focus::placeholder {

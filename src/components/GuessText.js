@@ -14,9 +14,7 @@ const GuessText = props => {
   }
 
   return (
-    <div
-      className='guess-container'
-    >
+    <div>
       <form
         id='guess-form'
         onSubmit={handleSubmit}
