@@ -1,43 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const GuessText = props => {
-  const [guess, setGuess] = useState('');
+const GuessText = (props) => {
+  const [guess, setGuess] = useState("");
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setGuess(e.target.value);
-  }
+  };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     props.checkGuess(guess);
-    setGuess('');
-  }
+    setGuess("");
+  };
 
   return (
     <div>
-      <form
-        id='guess-form'
-        onSubmit={handleSubmit}
-      >
+      <form id="guess-form" onSubmit={handleSubmit}>
         <input
-          className='guess'
-          type='text'
-          name='guess'
+          className="guess"
+          type="text"
+          name="guess"
           value={guess}
-          placeholder='音読み当ててみよう'
+          placeholder="音読み当ててみよう"
           onChange={handleChange}
         />
         <div>
-          <button
-            className='normal-button'
-            type='submit'
-          >
-          チェック
+          <button className="normal-button" type="submit">
+            チェック
           </button>
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default GuessText;

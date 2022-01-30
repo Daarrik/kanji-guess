@@ -7,12 +7,12 @@
 }
 
 body {
-  background-color: #1A1A1D;
+  background-color: #1a1a1d;
   margin: 0;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -23,8 +23,8 @@ code {
   border: none;
   border-radius: 5px;
   font-size: 15px;
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
-  transition-duration: .25s;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  transition-duration: 0.25s;
 }
 
 .bottom-left {
@@ -35,12 +35,12 @@ code {
 
 .normal-button:hover {
   color: #f6f6f6;
-  background-color: #C3073F;
-  transition-duration: .25s;
+  background-color: #c3073f;
+  transition-duration: 0.25s;
 }
 
 .kanji-container {
-  background-color: #C3073F;
+  background-color: #c3073f;
   width: 500px;
   border-radius: 10px;
 }
@@ -52,9 +52,9 @@ code {
   border: none;
   border-radius: 5px;
   font-size: 25px;
-  color: #C3073F;
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
-  transition-duration: .25s;
+  color: #c3073f;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  transition-duration: 0.25s;
 }
 
 .box-container {
@@ -66,7 +66,7 @@ code {
   line-height: 250px;
   margin: 0;
   font-size: 150px;
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
   text-align: center;
   color: #f6f6f6;
 }
@@ -86,8 +86,8 @@ code {
   height: 75px;
   font-size: 20px;
   text-align: center;
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
-  color: #C3073F;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  color: #c3073f;
   outline: none;
 }
 
