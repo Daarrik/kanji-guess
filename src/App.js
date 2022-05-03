@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import GetKanji from "./components/GetKanji";
-import GuessText from "./components/GuessText";
-import { fetchCharacter, getWordData, getWord } from "./getKanji";
-import { getCommonWord } from "./commonKanji";
-import GuessBox from "./components/GuessBox";
+import { GetKanji, GuessText, GuessBox } from "./components";
+import { getWord } from "./getKanji";
 
 const App = () => {
   const [kanji, setKanji] = useState("");
